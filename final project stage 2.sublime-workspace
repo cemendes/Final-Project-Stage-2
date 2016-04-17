@@ -1,0 +1,469 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sample",
+				"sample_changed"
+			],
+			[
+				"_",
+				"___2___"
+			],
+			[
+				"sampl",
+				"sample_changed"
+			],
+			[
+				"___",
+				"___2___"
+			],
+			[
+				"guess",
+				"guess_count"
+			],
+			[
+				"dc",
+				"dic_sample"
+			],
+			[
+				"dic",
+				"dic_sample"
+			],
+			[
+				"level",
+				"level_and_guess"
+			],
+			[
+				"game",
+				"game_level_guesses"
+			],
+			[
+				"number",
+				"number_of_guesses"
+			],
+			[
+				"fill",
+				"fill_in_the_blank"
+			],
+			[
+				"fil",
+				"fill_in_the_blank"
+			],
+			[
+				"word",
+				"word_in_pos"
+			],
+			[
+				"greate",
+				"greatest_number"
+			],
+			[
+				"grea",
+				"greatest_number"
+			],
+			[
+				"list",
+				"list_of_numbers"
+			],
+			[
+				"count",
+				"count_list"
+			],
+			[
+				"rand",
+				"random_list"
+			],
+			[
+				"random",
+				"random_list"
+			],
+			[
+				"days",
+				"daysOfMonths"
+			],
+			[
+				"month",
+				"month1"
+			],
+			[
+				"co",
+				"counting_days"
+			],
+			[
+				"to",
+				"total_days"
+			],
+			[
+				"next",
+				"nextDay"
+			],
+			[
+				"years",
+				"years_in_days"
+			],
+			[
+				"year",
+				"years_in_days"
+			],
+			[
+				"dif",
+				"dif_day"
+			],
+			[
+				"is",
+				"isLeapYear"
+			],
+			[
+				"ex",
+				"example_list_2"
+			],
+			[
+				"prit",
+				"print_all_elements"
+			],
+			[
+				"ran",
+				"random_noun"
+			],
+			[
+				"mad",
+				"mad_lib"
+			],
+			[
+				"rando",
+				"random_verb"
+			],
+			[
+				"pro",
+				"processed"
+			],
+			[
+				"wor",
+				"word_transformer"
+			],
+			[
+				"b",
+				"b"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"ref",
+				"ext_refs_and_backlinks_status_edir"
+			],
+			[
+				"p",
+				"part_sync_status_edir"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding-right"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "# IPND Stage 2 Final Project\n\n# You've built a Mad-Libs game with some help from Sean.\n# Now you'll work on your own game to practice your skills and demonstrate what you've learned.\n\n# For this project, you'll be building a Fill-in-the-Blanks quiz.\n# Your quiz will prompt a user with a paragraph containing several blanks.\n# The user should then be asked to fill in each blank appropriately to complete the paragraph.\n# This can be used as a study tool to help you remember important vocabulary!\n\n# Note: Your game will have to accept user input so, like the Mad Libs generator,\n# you won't be able to run it using Sublime's `Build` feature.\n# Instead you'll need to run the program in Terminal or IDLE.\n# Refer to Work Session 5 if you need a refresher on how to do this.\n\n# To help you get started, we've provided a sample paragraph that you can use when testing your code.\n# Your game should consist of 3 or more levels, so you should add your own paragraphs as well!\n\n# The answer for ___1___ is 'function'. Can you figure out the others?\n\n# We've also given you a file called fill-in-the-blanks.pyc which is a working version of the project.\n# A .pyc file is a Python file that has been translated into \"byte code\".\n# This means the code will run the same as the original .py file, but when you open it\n# it won't look like Python code! But you can run it just like a regular Python file\n# to see how your code should behave.\n\n\n# Hint: It might help to think about how this project relates to the Mad Libs generator you built with Sean.\n# In the Mad Libs generator, you take a paragraph and replace all instances of NOUN and VERB.\n# How can you adapt that design to work with numbered blanks?\n\n# If you need help, you can sign up for a 1 on 1 coaching appointment: https://calendly.com/ipnd1-1/20min/\ndic_sample = {'___1___' : 'function', '___2___' : 'variables', '___3___' : 'None', '___4___' : 'list'}\nsample = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by\nadding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you\ndon't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,\ntuple, and ___4___ or can be more complicated such as objects and lambda functions.'''\n\n\ndef game_level_guess():\n    level = raw_input(\"Please, select a game difficulty by typing it in! Possible choices include easy, medium, and hard. \")\n    if level.lower() == \"easy\":\n        print \"You have chosen\",level,\"!\"\n    elif level.lower() == \"medium\":\n        print \"You have chosen\",level,\"!\"\n    elif level.lower() == \"hard\":\n        print \"You have chosen\",level,\"!\"\n    number_of_guesses = raw_input(\"How many guesses would you like per problem? Please enter a positive integer number: \")\n    number_of_guesses = int(number_of_guesses)\n    return level, number_of_guesses\n\ndef fill_in_the_blank():\n    guess_count = 0\n    # modified_sample = sample.split()\n    level_and_guess = \"\"\n    level_and_guess = game_level_guess()\n    print \"This paragraph reads as such: \", sample\n    while level_and_guess[1] > guess_count:\n        # print level_and_guess[1] > guess_count\n        # print \"guess count:\", guess_count, \"level_and_gues:\", level_and_guess[1]\n        first_choice = raw_input(\"What should be substituded in for ___1___? \")\n        if first_choice == dic_sample['___1___']:\n            sample_changed = sample.replace('___1___',first_choice)\n            # print sample_changed\n            print sample_changed\n            second_choice = raw_input(\"What should be substituded in for ___2___?\")\n            if second_choice == dic_sample['___2___']:\n                sample_changed = sample_changed.replace('___2___',second_choice)\n                print sample_changed\n                third_choice = raw_input(\"What should be substituded in for ___3___?\")\n                if second_choice == dic_sample['___3___']:\n                    sample_changed = sample_changed.replace('___3___',third_choice)\n                    print sample_changed\n                    fourth_choice = raw_input(\"What should be substituded in for ___4___?\")\n                    if second_choice == dic_sample['___4___']:\n                        sample_changed = sample_changed.replace('___4___',fourth_choice)\n                        print sample_changed\n                        return sample_changed\n        else:\n            # print \"entered else\"\n            guess_count += 1\n\n\n\n# Asks users to pick difficult level.\n\n\nfill_in_the_blank()",
+			"file": "fill-in-the-blanks.py",
+			"file_size": 4624,
+			"file_write_time": 131035971007832114,
+			"settings":
+			{
+				"buffer_size": 4535,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "playground.py",
+			"settings":
+			{
+				"buffer_size": 475,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 181.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/Stage 2 Project/fill-in-the-blanks.py",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/Stage 2 Project.sublime-project",
+		"/C/Users/Eduardo/Downloads/Sessions.XML",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/find_element",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/file2",
+		"/C/Users/Eduardo/Google Drive/udacity/Projects/tic-tac-toe/tic-tac-toe.py",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/word transformer",
+		"/C/Users/Eduardo/Google Drive/udacity/Projects/tic-tac-toe/tic-tac-toe.sublime-project",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/nextDay.py",
+		"/C/Users/Eduardo/Google Drive/github/stage1/DaysBetweenDays-Udacity Version",
+		"/C/Users/Eduardo/Google Drive/github/stage1/DaysBetweenDays-V1",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/playground2.py",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/playground",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/tool.py",
+		"/C/Users/Eduardo/AppData/Local/Temp/Rar$EXa0.744/NetIQ-IdentityManager-dev_20140610/SDK_README.html",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/2.6 starter code - FOR",
+		"/C/Users/Eduardo/Google Drive/github/stage1/process madlib1",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/randint.py",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/median2",
+		"/C/Users/Eduardo/Google Drive/github/stage1/2.6 starter code",
+		"/C/Users/Eduardo/Google Drive/github/stage1/For Loop Playground",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/process madlib",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/2.1/file1.py",
+		"/C/Users/Eduardo/Downloads/AON/eDirectory Monitor/eDir_health_check.sh",
+		"/C/Users/Eduardo/Google Drive/github/stage1/index.html",
+		"/C/Users/Eduardo/Google Drive/github/stage1/style.css",
+		"/C/Users/Eduardo/Google Drive/github/stage1/.git/COMMIT_EDITMSG",
+		"/C/Users/Eduardo/AppData/Local/GitHub/PortableGit_c7e0cbde92ba565cb218a521411d0e854079a28c/mingw32/share/doc/git-doc/git-push.html",
+		"/C/Users/Eduardo/Google Drive/github/stage1/test.html",
+		"/C/Users/Eduardo/Google Drive/github/stage1/.git/config",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/toplist/style.css",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/toplist/app.html",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/practice/style.css",
+		"/C/Users/Eduardo/Google Drive/udacity/Portfolio/practice/index.html",
+		"/C/Users/Eduardo/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Eduardo/Google Drive/udacity/css-demo/app.html",
+		"/C/Users/Eduardo/Google Drive/udacity/css-demo/style.css",
+		"/C/Users/Eduardo/Google Drive/udacity/css-demo/index.html",
+		"/C/Users/Eduardo/Google Drive/udacity/stage1/style.css",
+		"/C/Users/Eduardo/Google Drive/udacity/app.html",
+		"/C/Users/Eduardo/Google Drive/udacity/stage1-worksession1.html",
+		"/C/Users/Eduardo/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"return",
+			"ExtraArgs=\"\"",
+			"Hewitt-Webauth",
+			"L4DSLDP8",
+			"d2",
+			"d1",
+			"m2",
+			"m1",
+			"y2",
+			"y1",
+			"eDir",
+			"Edir",
+			"#EMAIL",
+			"admin@company.com",
+			"Edir1",
+			"eDir1",
+			"largest",
+			"content"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ExtraArgs=\"-pw #%$x#ndR$4\"",
+			"Hewitt-Webauth-PROD-EXT",
+			"L98SIPLD1410",
+			"L98SIPLD1410\nL98SIPLD1410\nL98SIPLD1410\nL98SIPLD1410\nL98SIPLD1410\nL98SIPLD1410\nL98SIPLD1410",
+			"day2",
+			"day1",
+			"month2",
+			"month1",
+			"year2",
+			"year1",
+			"$HOSTNAME",
+			"$EMAIL",
+			"#EMAIL",
+			"$HOSTNAME",
+			"text-content"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "fill-in-the-blanks.py",
+					"settings":
+					{
+						"buffer_size": 4535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1807,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "playground.py",
+					"settings":
+					{
+						"buffer_size": 475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 265.0
+	},
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 212.0,
+	"status_bar_visible": true
+}

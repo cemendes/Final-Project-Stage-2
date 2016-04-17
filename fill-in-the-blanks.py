@@ -30,14 +30,14 @@
 # How can you adapt that design to work with numbered blanks?
 
 # If you need help, you can sign up for a 1 on 1 coaching appointment: https://calendly.com/ipnd1-1/20min/
-
+dic_sample = {'___1___' : 'function', '___2___' : 'variables', '___3___' : 'None', '___4___' : 'list'}
 sample = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
 adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
 don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
 tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
 
 
-def game_level_guesses():
+def game_level_guess():
     level = raw_input("Please, select a game difficulty by typing it in! Possible choices include easy, medium, and hard. ")
     if level.lower() == "easy":
         print "You have chosen",level,"!"
@@ -46,10 +46,46 @@ def game_level_guesses():
     elif level.lower() == "hard":
         print "You have chosen",level,"!"
     number_of_guesses = raw_input("How many guesses would you like per problem? Please enter a positive integer number: ")
+    number_of_guesses = int(number_of_guesses)
     return level, number_of_guesses
+
 def fill_in_the_blank():
-    game_level_guesses()
-    print number_of_guesses
+    guess_count = 0
+    # modified_sample = sample.split()
+    level_and_guess = ""
+    level_and_guess = game_level_guess()
+    final_guess_count = level_and_guess[1]
+    print "This paragraph reads as such: ", sample
+    while level_and_guess[1] > guess_count:
+        final_guess_count -= 1
+        # print level_and_guess[1] > guess_count
+        # print "guess count:", guess_count, "level_and_gues:", level_and_guess[1]
+        first_choice = raw_input("What should be substituded in for ___1___? ")
+        if first_choice == dic_sample['___1___']:
+            sample_changed = sample.replace('___1___',first_choice)
+            # print sample_changed
+            print sample_changed
+        # else:
+
+            second_choice = raw_input("What should be substituded in for ___2___?")
+            if second_choice == dic_sample['___2___']:
+                sample_changed = sample_changed.replace('___2___',second_choice)
+                print sample_changed
+                third_choice = raw_input("What should be substituded in for ___3___?")
+                if second_choice == dic_sample['___3___']:
+                    sample_changed = sample_changed.replace('___3___',third_choice)
+                    print sample_changed
+                    fourth_choice = raw_input("What should be substituded in for ___4___?")
+                    if second_choice == dic_sample['___4___']:
+                        sample_changed = sample_changed.replace('___4___',fourth_choice)
+                        print sample_changed
+                        return sample_changed
+        else:
+            print "This isn't the correct answer! You only have",final_guess_count,"try left. Make it count"
+            guess_count += 1
+
+
+
 # Asks users to pick difficult level.
 
 
