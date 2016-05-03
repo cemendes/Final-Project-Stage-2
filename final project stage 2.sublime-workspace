@@ -192,13 +192,10 @@
 	"buffers":
 	[
 		{
-			"contents": "# IPND Stage 2 Final Project\n\n# You've built a Mad-Libs game with some help from Sean.\n# Now you'll work on your own game to practice your skills and demonstrate what you've learned.\n\n# For this project, you'll be building a Fill-in-the-Blanks quiz.\n# Your quiz will prompt a user with a paragraph containing several blanks.\n# The user should then be asked to fill in each blank appropriately to complete the paragraph.\n# This can be used as a study tool to help you remember important vocabulary!\n\n# Note: Your game will have to accept user input so, like the Mad Libs generator,\n# you won't be able to run it using Sublime's `Build` feature.\n# Instead you'll need to run the program in Terminal or IDLE.\n# Refer to Work Session 5 if you need a refresher on how to do this.\n\n# To help you get started, we've provided a sample paragraph that you can use when testing your code.\n# Your game should consist of 3 or more levels, so you should add your own paragraphs as well!\n\n# The answer for ___1___ is 'function'. Can you figure out the others?\n\n# We've also given you a file called fill-in-the-blanks.pyc which is a working version of the project.\n# A .pyc file is a Python file that has been translated into \"byte code\".\n# This means the code will run the same as the original .py file, but when you open it\n# it won't look like Python code! But you can run it just like a regular Python file\n# to see how your code should behave.\n\n\n# Hint: It might help to think about how this project relates to the Mad Libs generator you built with Sean.\n# In the Mad Libs generator, you take a paragraph and replace all instances of NOUN and VERB.\n# How can you adapt that design to work with numbered blanks?\n\n# If you need help, you can sign up for a 1 on 1 coaching appointment: https://calendly.com/ipnd1-1/20min/\ndic_sample = {'___1___' : 'function', '___2___' : 'variables', '___3___' : 'None', '___4___' : 'list'}\nsample = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by\nadding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you\ndon't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,\ntuple, and ___4___ or can be more complicated such as objects and lambda functions.'''\n\n\ndef game_level_guess():\n    level = raw_input(\"Please, select a game difficulty by typing it in! Possible choices include easy, medium, and hard. \")\n    if level.lower() == \"easy\":\n        print \"You have chosen\",level,\"!\"\n    elif level.lower() == \"medium\":\n        print \"You have chosen\",level,\"!\"\n    elif level.lower() == \"hard\":\n        print \"You have chosen\",level,\"!\"\n    number_of_guesses = raw_input(\"How many guesses would you like per problem? Please enter a positive integer number: \")\n    number_of_guesses = int(number_of_guesses)\n    return level, number_of_guesses\n\ndef fill_in_the_blank():\n    guess_count = 0\n    # modified_sample = sample.split()\n    level_and_guess = \"\"\n    level_and_guess = game_level_guess()\n    print \"This paragraph reads as such: \", sample\n    while level_and_guess[1] > guess_count:\n        # print level_and_guess[1] > guess_count\n        # print \"guess count:\", guess_count, \"level_and_gues:\", level_and_guess[1]\n        first_choice = raw_input(\"What should be substituded in for ___1___? \")\n        if first_choice == dic_sample['___1___']:\n            sample_changed = sample.replace('___1___',first_choice)\n            # print sample_changed\n            print sample_changed\n            second_choice = raw_input(\"What should be substituded in for ___2___?\")\n            if second_choice == dic_sample['___2___']:\n                sample_changed = sample_changed.replace('___2___',second_choice)\n                print sample_changed\n                third_choice = raw_input(\"What should be substituded in for ___3___?\")\n                if second_choice == dic_sample['___3___']:\n                    sample_changed = sample_changed.replace('___3___',third_choice)\n                    print sample_changed\n                    fourth_choice = raw_input(\"What should be substituded in for ___4___?\")\n                    if second_choice == dic_sample['___4___']:\n                        sample_changed = sample_changed.replace('___4___',fourth_choice)\n                        print sample_changed\n                        return sample_changed\n        else:\n            # print \"entered else\"\n            guess_count += 1\n\n\n\n# Asks users to pick difficult level.\n\n\nfill_in_the_blank()",
 			"file": "fill-in-the-blanks.py",
-			"file_size": 4624,
-			"file_write_time": 131035971007832114,
 			"settings":
 			{
-				"buffer_size": 4535,
+				"buffer_size": 4701,
 				"line_ending": "Windows"
 			}
 		},
@@ -352,15 +349,15 @@
 					"file": "fill-in-the-blanks.py",
 					"settings":
 					{
-						"buffer_size": 4535,
+						"buffer_size": 4701,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1807,
-								0
+								4486,
+								4486
 							]
 						],
 						"settings":
@@ -370,7 +367,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 504.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

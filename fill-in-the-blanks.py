@@ -49,44 +49,35 @@ def game_level_guess():
     number_of_guesses = int(number_of_guesses)
     return level, number_of_guesses
 
+def check_answer(choice,choice_pos,sampleA):
+    if choice == dic_sample[choice_pos]:
+        sample_changed = sampleA.replace(choice_pos,choice)
+        return sample_changed
+
 def fill_in_the_blank():
+    sample_changed_again = sample
     guess_count = 0
-    # modified_sample = sample.split()
-    level_and_guess = ""
+    exit_loop = 0
     level_and_guess = game_level_guess()
-    final_guess_count = level_and_guess[1]
     print "This paragraph reads as such: ", sample
-    while level_and_guess[1] > guess_count:
-        final_guess_count -= 1
-        # print level_and_guess[1] > guess_count
-        # print "guess count:", guess_count, "level_and_gues:", level_and_guess[1]
+    while level_and_guess[1] > guess_count or exit_loop == 1:
+        print level_and_guess,exit_loop
         first_choice = raw_input("What should be substituded in for ___1___? ")
-        if first_choice == dic_sample['___1___']:
-            sample_changed = sample.replace('___1___',first_choice)
-            # print sample_changed
-            print sample_changed
-        # else:
-
-            second_choice = raw_input("What should be substituded in for ___2___?")
-            if second_choice == dic_sample['___2___']:
-                sample_changed = sample_changed.replace('___2___',second_choice)
-                print sample_changed
-                third_choice = raw_input("What should be substituded in for ___3___?")
-                if second_choice == dic_sample['___3___']:
-                    sample_changed = sample_changed.replace('___3___',third_choice)
-                    print sample_changed
-                    fourth_choice = raw_input("What should be substituded in for ___4___?")
-                    if second_choice == dic_sample['___4___']:
-                        sample_changed = sample_changed.replace('___4___',fourth_choice)
-                        print sample_changed
-                        return sample_changed
-        else:
-            print "This isn't the correct answer! You only have",final_guess_count,"try left. Make it count"
+        if not check_answer(first_choice,'___1___',sample):
             guess_count += 1
+        else:
+            sample_changed_again = check_answer(first_choice,'___1___',sample)
+            print sample_changed_again
+            exit_loop = 1
+            print 'bunda'
 
-
-
-# Asks users to pick difficult level.
+    while level_and_guess[1] > guess_count:
+        second_choice = raw_input("What should be substituded in for ___2___? ")
+        if not check_answer(second_choice, '___2___',sample_changed_again):
+            guess_count += 1
+        else:
+            sample_changed_again = check_answer(first_choice,'___2___',sample_changed_again)
+            print sample_changed_again
 
 
 fill_in_the_blank()
