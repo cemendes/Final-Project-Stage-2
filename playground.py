@@ -14,10 +14,21 @@
 # print type(level_and_guess)
 # print level_and_guess[1] > var1
 
-level = 21
-exit_loop = 2
+# level = 21
+# exit_loop = 2
 
-while level > 20 or exit_loop == 3:
-    print "I'm in the loop"
-    exit_loop += 1
-    level -= 1
+# while level > 20 or exit_loop == 3:
+#     print "I'm in the loop"
+#     exit_loop += 1
+#     level -= 1
+
+# number_of_guesses = "10a"
+# print number_of_guesses
+# print number_of_guesses.isdigit()
+# while number_of_guesses.isdigit() == False:
+#         number_of_guesses = raw_input("How many guesses would you like per problem? Please enter a positive integer number: ")
+# #number_of_guesses = int(number_of_guesses)
+level == 'easy'
+
+if level.lower() == "easy" or level.lower() == "medium" or level.lower() == "hard":
+    print "YAY"
