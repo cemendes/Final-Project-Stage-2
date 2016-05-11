@@ -32,3 +32,34 @@ level == 'easy'
 
 if level.lower() == "easy" or level.lower() == "medium" or level.lower() == "hard":
     print "YAY"
+
+
+        while level_and_guess[1] > guess_count:
+        second_choice = raw_input("What should be substituded in for ___2___? ")
+        if not check_answer(second_choice, '___2___',sample_changed_again):
+            guess_count += 1
+            print "This isn't the correct answer! You only have",level_and_guess[1] - guess_count, "try left. Make it count!"
+        else:
+            sample_changed_again = check_answer(second_choice,'___2___',sample_changed_again)
+            print sample_changed_again
+            break
+
+    while level_and_guess[1] > guess_count:
+        third_choice = raw_input("What should be substituded in for ___3___? ")
+        if not check_answer(third_choice, '___3___',sample_changed_again):
+            guess_count += 1
+            print "This isn't the correct answer! You only have",level_and_guess[1] - guess_count, "try left. Make it count!"
+        else:
+            sample_changed_again = check_answer(third_choice,'___3___',sample_changed_again)
+            print sample_changed_again
+            break
+
+    while level_and_guess[1] > guess_count:
+        fourth_choice = raw_input("What should be substituded in for ___4___? ")
+        if not check_answer(fourth_choice, '___4___',sample_changed_again):
+            guess_count += 1
+            print "This isn't the correct answer! You only have",level_and_guess[1] - guess_count, "try left. Make it count!"
+        else:
+            sample_changed_again = check_answer(fourth_choice,'___4___',sample_changed_again)
+            print sample_changed_again
+            break
