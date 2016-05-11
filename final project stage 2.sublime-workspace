@@ -8,6 +8,58 @@
 				"sample_changed"
 			],
 			[
+				"Sam",
+				"sample_changed_again"
+			],
+			[
+				"dict",
+				"dictionary_to_use"
+			],
+			[
+				"dic",
+				"dictionary"
+			],
+			[
+				"mediu",
+				"medium_dic"
+			],
+			[
+				"di",
+				"dictionary_to_use"
+			],
+			[
+				"easy",
+				"easy_dic"
+			],
+			[
+				"hard",
+				"hard_dic"
+			],
+			[
+				"medium",
+				"medium_sample"
+			],
+			[
+				"sam",
+				"sample_changed_again"
+			],
+			[
+				"sample_ch",
+				"sample_changed_again"
+			],
+			[
+				"game",
+				"game_level_guess"
+			],
+			[
+				"__",
+				"___1___"
+			],
+			[
+				"choice",
+				"choice_pos"
+			],
+			[
 				"_",
 				"___2___"
 			],
@@ -28,16 +80,8 @@
 				"dic_sample"
 			],
 			[
-				"dic",
-				"dic_sample"
-			],
-			[
 				"level",
 				"level_and_guess"
-			],
-			[
-				"game",
-				"game_level_guesses"
 			],
 			[
 				"number",
@@ -192,10 +236,21 @@
 	"buffers":
 	[
 		{
+			"contents": "easy_dic = {'___1___' : 'function', '___2___' : 'variables', '___3___' : 'None', '___4___' : 'list'}\neasy_sample = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by\nadding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you\ndon't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,\ntuple, and ___4___ or can be more complicated such as objects and lambda functions.'''\n\nmedium_dic = {'___1___' : 'world', '___2___' : 'python', '___3___' : 'print', '___4___' : 'html',}\nmedium_sample = '''A common first thing to do in a language is display 'Hello ___1___!'  In ___2___ this is particularly easy;\nall you have to do is type in: ___3___ \"Hello ___1___!\" Of course, that isn't a very useful thing to do. However, it is an\nexample of how to output to the user using the ___3___ command, and produces a program which does something, so it is useful\nin that capacity.'It may seem a bit odd to do something in a Turing complete language that can be done even more easily\nwith an ___4___ file in a browser, but it's a step in learning ___2___ syntax, and that's really its purpose.'''\n\nhard_dic = {'___1___' : 'class', '___2___' : 'semantics', '___3___' : 'methods', '___4___' : 'python',}\nhard_sample = '''Compared with other programming languages, Python’s ___1___ mechanism adds ___1___s with a minimum of new syntax\nand ___2___. It is a mixture of the ___1___ mechanisms found in C++ and Modula-3. Python ___1___es provide all the standard\nfeatures of Object Oriented Programming: the ___1___ inheritance mechanism allows multiple base ___1___es, a derived ___1___ can\noverride any ___3___ of its base ___1___ or ___1___es, and a method can call the __3__ of a base ___2___ with the same name.\nObjects can contain arbitrary amounts and kinds of data. As is true for modules, ___1___es partake of the dynamic nature\nof Python: they are created at runtime, and can be modified further after creation.'''\n\ndictionaries = {'easy' : easy_dic, 'medium' : medium_dic, 'hard' : hard_dic}\nsamples = {'easy' : easy_sample, 'medium' : medium_sample, 'hard' : hard_sample}\n\ndef game_level_guess():\n    '''Asks the user for the level and number of guesses. Level should be easy, medium or hard and number_of_guesses should be an integer.\n       It will return level and number_of_guesses'''\n    exit_loop = 0\n    while exit_loop == 0:\n        level = raw_input(\"Please, select a game difficulty by typing it in! Possible choices include easy, medium, and hard. \")\n        if level.lower() in ['easy','medium','hard']:\n            print \"You've chosen\",level,\"!\"\n            exit_loop += 1\n        else:\n            print level,\"is not a valid level!\"\n    number_of_guesses = raw_input(\"How many guesses would you like per problem? Please enter a positive integer number: \")\n    while number_of_guesses.isdigit() == False:\n        print \"This is not an integer\"\n        print(\"\\n\")\n        number_of_guesses = raw_input(\"How many guesses would you like per problem? Please enter a positive integer number: \")\n    number_of_guesses = int(number_of_guesses)\n    return level,number_of_guesses\n\ndef check_answer(choice,choice_pos,sampleA,dictionary):\n    '''Check if the answer is correct. if true, it changes the variable using the dictionary. It will return sample_changed with the correct answered\n    inputed by the user'''\n    if choice == dictionary[choice_pos]:\n        sample_changed = sampleA.replace(choice_pos,choice)\n        return sample_changed\n\ndef fill_in_the_blank():\n    '''This is the main function. It will call check_answer and number_of_guesses as use its inputs. The output will be either the sample with the right answer\n       or it will ask for the user to try again.'''\n    guess_count = 0\n    exit_loop = 0\n    level_and_guess = game_level_guess()\n    dictionary_to_use = dictionaries[level_and_guess[0]]\n    sample_changed_again = samples[level_and_guess[0]]\n\n    print \"This paragraph reads as such: \", sample_changed_again\n\n    for n in sorted(dictionary_to_use.keys()):\n        while level_and_guess[1] > guess_count:\n            first_choice = raw_input(\"What should be substituded in for\" + n + \"?\")\n            if not check_answer(first_choice,n,sample_changed_again,dictionary_to_use):\n                guess_count += 1\n                print \"This isn't the correct answer! You only have\",level_and_guess[1] - guess_count,\"try left. Make it count!\"\n            else:\n                sample_changed_again = check_answer(first_choice,n,sample_changed_again,dictionary_to_use)\n                print sample_changed_again\n                break\n\n\n\nfill_in_the_blank()",
 			"file": "fill-in-the-blanks.py",
+			"file_size": 6620,
+			"file_write_time": 131074419533732985,
 			"settings":
 			{
-				"buffer_size": 4701,
+				"buffer_size": 4704,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "playground2.py",
+			"settings":
+			{
+				"buffer_size": 274,
 				"line_ending": "Windows"
 			}
 		},
@@ -203,7 +258,7 @@
 			"file": "playground.py",
 			"settings":
 			{
-				"buffer_size": 475,
+				"buffer_size": 2640,
 				"line_ending": "Windows"
 			}
 		}
@@ -349,15 +404,15 @@
 					"file": "fill-in-the-blanks.py",
 					"settings":
 					{
-						"buffer_size": 4701,
+						"buffer_size": 4704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4486,
-								4486
+								2584,
+								2629
 							]
 						],
 						"settings":
@@ -367,25 +422,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 504.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "playground.py",
+					"file": "playground2.py",
 					"settings":
 					{
-						"buffer_size": 475,
+						"buffer_size": 274,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								390,
-								390
+								224,
+								224
 							]
 						],
 						"settings":
@@ -394,6 +449,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "playground.py",
+					"settings":
+					{
+						"buffer_size": 2640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2639,
+								2639
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 771.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -434,7 +517,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 265.0
+		"height": 206.0
 	},
 	"replace":
 	{

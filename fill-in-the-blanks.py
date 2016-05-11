@@ -60,7 +60,7 @@ def game_level_guess():
     exit_loop = 0
     while exit_loop == 0:
         level = raw_input("Please, select a game difficulty by typing it in! Possible choices include easy, medium, and hard. ")
-        if level.lower() == "easy" or level.lower() == "medium" or level.lower() == "hard":
+        if level.lower() in ['easy','medium','hard']:
             print "You've chosen",level,"!"
             exit_loop += 1
         else:
